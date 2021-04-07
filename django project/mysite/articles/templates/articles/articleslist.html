@@ -1,0 +1,24 @@
+{% load static %}
+<html lang="end" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Articles</title>
+        <link rel="stylesheet" href="{% static 'articlestyle.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Articles</h1>
+            <p>here is Articles page</p>
+            {% for article in articles %}
+            <p>{{article.id}}</p>
+            <h3>
+                <a href="http://127.0.0.1:8000/admin">{{article.title}}</a>    
+            </h3>
+            <p>{{article.abstract}}</p>
+            <p>{{article.date}}</p>
+            
+            {% endfor %}
+        </div>
+
+    </body>
+</html>
