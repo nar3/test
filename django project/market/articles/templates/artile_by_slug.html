@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Article page for {{slug_in_article_models.slug}}
+{% endblock %}
+
+{% block content %}
+<div class="article_by_slug_in_html_0">
+    <div class="article_by_slug_in_html_1">
+        <p> </p>
+        <h3>{{slug_in_article_models.title}}</h3>
+        <p> </p>
+        <h5>{{slug_in_article_models.body}}</h5>
+        <h6><p>{{slug_in_article_models.date}}</p></h6>
+        <img src="{{slug_in_article_models.image.url}}" alt="">
+    </div>
+</div>
+{% endblock %}

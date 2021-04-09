@@ -6,15 +6,16 @@ Articles Home title
 
 {% block content %}
 <div class="container" >
-<h2>Articles Home header</h2>
-<p>Article Home "P"</p>
-{%for i in objects_in_artic_models %}
-<h3><a href="{% url 'articles_urls_app:articles_slug_page_redirect' slug=i.slug %}">{{i.title}}</a></h3>
-    {%if i.body|length > 50 %}
-        <p>{{i.abstract}}</p>
-    {%else%}
-        <p>{{i.body}}</p>
-    {%endif%}
-{%endfor%}
+    <h2>Articles Home header</h2>
+    <p>Article Home "P"</p>
+    {%for i in objects_in_artic_models %}
+        <h3><a href="{% url 'articles_urls_app:articles_slug_page_redirect' slugname=i.slug %}">{{i.title}}</a></h3>
+        {%if i.body|length > 50 %}
+            <p>{{i.abstract}}</p>
+        {%else%}
+            <p>{{i.body}}</p>
+        {%endif%}
+        <h6><p>{{i.date}}</p></h6>
+    {%endfor%}
 </div>
 {% endblock %}
