@@ -1,7 +1,9 @@
+{% load static %}
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <title>Articles Home title</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
 
     <body>
@@ -9,7 +11,11 @@
         <p>Article Home "P"</p>
         {%for i in objects_in_artic_models %}
         <h3><a href="#">{{i.title}}</a></h3>
-            <p>{{i.body}}</p>
+            {%if i.body|length > 50 %}
+                <p>{{i.abstract}}</p>
+            {%else%}
+                <p>{{i.body}}</p>
+            {%endif%}
         {%endfor%}
     </body>
 </html>
