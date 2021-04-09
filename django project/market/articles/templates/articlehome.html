@@ -1,21 +1,20 @@
-{% load static %}
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Articles Home title</title>
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-    </head>
+{% extends "base.html" %}
 
-    <body>
-        <h2>Articles Home header</h2>
-        <p>Article Home "P"</p>
-        {%for i in objects_in_artic_models %}
-        <h3><a href="#">{{i.title}}</a></h3>
-            {%if i.body|length > 50 %}
-                <p>{{i.abstract}}</p>
-            {%else%}
-                <p>{{i.body}}</p>
-            {%endif%}
-        {%endfor%}
-    </body>
-</html>
+{% block title %}
+Articles Home title
+{% endblock %}
+
+{% block content %}
+<div class="container" >
+<h2>Articles Home header</h2>
+<p>Article Home "P"</p>
+{%for i in objects_in_artic_models %}
+<h3><a href="{% url 'articles_urls_app:articles_slug_page_redirect' slug=i.slug %}">{{i.title}}</a></h3>
+    {%if i.body|length > 50 %}
+        <p>{{i.abstract}}</p>
+    {%else%}
+        <p>{{i.body}}</p>
+    {%endif%}
+{%endfor%}
+</div>
+{% endblock %}

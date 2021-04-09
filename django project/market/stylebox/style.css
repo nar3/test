@@ -1,3 +1,22 @@
 body{
-    background-color: cadetblue;
+    background-color: #21ced4;
+    background-image: url(/static/images/articlebackground.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: #fffdf0;
+}
+body *{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    margin: 0;
+}
+
+a,a:hover,a:visited{
+    color: cyan;
+    text-decoration: darkkhaki;
 }
