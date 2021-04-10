@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Sign Up</h1>
+<form class="signup-form" action="{% url 'accounts_url_app:signup_redirect' %}" method="POST">
+    {{form1}}
+    {% csrf_token %}
+    <input type="submit" value="signup">
+</form>
+{% endblock %}
