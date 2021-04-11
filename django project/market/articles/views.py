@@ -15,7 +15,9 @@ def create_article(request):
     if request.method == "POST":
         create_article_forms = form.Creat_Article_form(request.POST, request.FILES)
         if create_article_forms.is_valid:
-            create_article_forms.save()
+            author_var = create_article_forms.save(commit=False)
+            author_var.author = request.user
+            author_var.save()
             return redirect("articles_urls_app:articles_home_page_redirect")
     else:
         create_article_forms = form.Creat_Article_form()

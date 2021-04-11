@@ -12,23 +12,35 @@
     </head>
 
     <body>
-        <p> </p>
-        <a href="{% url 'articles_urls_app:articles_home_page_redirect' %}">Articles Page</a>
-        <nav>
-            <ul>
-                <li>
-                    <form class="logout_html" action="{% url 'accounts_url_app:logout_redirect' %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit">logout</button>
-                    </form>
-                </li>
-            </ul>
-        </nav>
-        <p> </p>
-        <div class="wrapper">
-            {% block content %}
+        <header>
+                <p> </p>
+            <a href="{% url 'articles_urls_app:articles_home_page_redirect' %}">Articles Page</a>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'articles_urls_app:article_create' %}">create article </a>
+                            <form class="logout_html" action="{% url 'accounts_url_app:logout_redirect' %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit">logout</button>
+                            </form>
+                        </li>
 
-            {% endblock %}
-        </div>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'accounts_url_app:login_redirect' %}">login </a>
+
+                            <a href="{% url 'accounts_url_app:signup_redirect' %}">signup</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <p> </p>
+            <div class="wrapper">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </header>
     </body>
 </html>

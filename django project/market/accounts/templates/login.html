@@ -4,6 +4,14 @@
 <h1>Login</h1>
 <form class="login-form" action="{% url 'accounts_url_app:login_redirect' %}" method="POST">
     {% csrf_token %}
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Example label</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Another label</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+      </div>
         {% if request.GET.next %}
             <input type="hidden" name="next_key" value="{{request.GET.next}}" >
         {% endif %}
@@ -11,3 +19,5 @@
     <input type="submit" value="login">
 </form>
 {% endblock %}
+
+
